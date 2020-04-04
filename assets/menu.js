@@ -95,11 +95,15 @@ function updateitem(id = 0) {
       var role = $(this)
         .find('.edit-menu-item-role')
         .val();
+      var published = $(this)
+        .find('.edit-menu-item-published')
+        .prop('checked');
       arr_data.push({
         id: id,
         label: label,
         class: clases,
         link: url,
+        published: published,
         role_id: role
       });
     });

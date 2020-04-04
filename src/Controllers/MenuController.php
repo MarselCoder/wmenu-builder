@@ -12,6 +12,11 @@ use Harimayco\Menu\Models\MenuItems;
 class MenuController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function createnewmenu()
     {
 
@@ -52,6 +57,7 @@ class MenuController extends Controller
                 $menuitem->label = $value['label'];
                 $menuitem->link = $value['link'];
                 $menuitem->class = $value['class'];
+                $menuitem->published = ($value['published'] === 'true') ? 1 : 0;
                 if (config('menu.use_roles')) {
                     $menuitem->role_id = $value['role_id'] ? $value['role_id'] : 0 ;
                 }

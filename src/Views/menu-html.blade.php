@@ -3,7 +3,7 @@ $currentUrl = url()->current();
 ?>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="{{asset('vendor/harimayco-menu/style.css')}}" rel="stylesheet">
+<link href="{{asset('vendor/marselcoder/laravel-menu/style.css')}}" rel="stylesheet">
 <div id="hwpwrap">
 	<div class="custom-wp-admin wp-admin wp-core-ui js   menu-max-depth-0 nav-menus-php auto-fold admin-bar">
 		<div id="wpwrap">
@@ -160,8 +160,14 @@ $currentUrl = url()->current();
 																	<p class="field-css-url description description-wide">
 																		<label for="edit-menu-item-url-{{$m->id}}"> Url
 																			<br>
-																			<input type="text" id="url_menu_{{$m->id}}" class="widefat code edit-menu-item-url" id="url_menu_{{$m->id}}" value="{{$m->link}}">
+																			<input type="text" id="url_menu_{{$m->id}}" class="widefat code edit-menu-item-url" name="url_menu_{{$m->id}}" value="{{$m->link}}">
 																		</label>
+																	</p>
+
+																	<p class="field-css-published description description-wide">
+																			<label for="edit-menu-item-published-{{$m->id}}"> Published
+																					<input type="checkbox" id="published_menu_{{$m->id}}" class="edit-menu-item-published" name="published_menu_{{$m->id}}" @if($m->published) checked="checked" @endif>
+																			</label>
 																	</p>
 
 																	@if(!empty($roles))
